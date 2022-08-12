@@ -1,0 +1,19 @@
+.color-bg {
+    background-color: #0e163c;
+}
+
+.nav-logo {
+    width: 100px;
+    height: 50px;
+}
+
+.form-image {
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.content-result {
+    min-height: 644px;
+    background-color: #f6f7f8;
+}

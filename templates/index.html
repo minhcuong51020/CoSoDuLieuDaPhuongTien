@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'fCss/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'fCss/main.css'%}">
+    <script src="{% static 'fJs/bootstrap.min.js'%}"></script>
+    <script src="{% static '/fJs/jsjquery.js'%}"></script>
+    <title>Home</title>
+</head>
+<body>
+    <div id="app">
+        <div class="header color-bg">
+            <div class="container">
+                <nav class="navbar color-bg">
+                    <a class="navbar-brand d-block" href="{% url 'home' %}">
+                      <img src="{% static 'fImage/logo.png' %}" class="d-inline-block align-top nav-logo" alt="">
+                    </a>
+                </nav>
+            </div>
+        </div>
+
+        <div class="content position-relative">
+            <img src="{% static 'fImage/1420796.webp' %}" class="img-fluid" alt="Responsive image">
+            <div class="position-absolute form-image w-50">
+                <div class="custom-file">
+                    <form action="{% url 'result' %}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <input type="file" class="custom-file-input" id="customFile" name="fileInput">
+                        <label class="custom-file-label" style="background-color: #f0f0f0;" for="customFile">Chọn hình ảnh của bạn</label>
+                        <div class="w-100 text-right pt-2">
+                            <button type="submit" class="btn btn-success text-right">Tìm kiếm</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer color-bg d-flex flex-column justify-content-center" style="height: 50px;">
+            <div class="text-center text-white">
+                Created By Minh Cuong
+            </div>
+        </div>
+
+        <script>
+            // Add the following code if you want the name of the file appear on select
+            $(".custom-file-input").on("change", function() {
+                var fileName = $(this).val().split("\\").pop();
+                $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+            });
+        </script>
+    </div>
+</body>
+</html>
